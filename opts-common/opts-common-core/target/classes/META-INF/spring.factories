@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.yl.opts.common.core.config.RedisTemplateConfig,\
+  com.yl.opts.common.core.config.RestTemplateConfig
+
