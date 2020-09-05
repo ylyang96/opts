@@ -1,5 +1,7 @@
 package com.yl.opts.auth.security.base;
 
+import com.alibaba.fastjson.JSONObject;
+import com.yl.opts.common.core.util.JwtUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
@@ -21,6 +23,11 @@ public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHand
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-
+        BaseToken baseToken = (BaseToken) authentication;
+        String token = JwtUtils.createToken(baseToken.getUserId());
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("token", token);
+        jsonObject.put("code", 1000);
+        response.getWriter().write(jsonObject.toString());
     }
 }

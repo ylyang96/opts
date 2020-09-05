@@ -1,6 +1,8 @@
 package com.yl.opts.auth.security.filter;
 
 import com.alibaba.nacos.common.utils.HttpMethod;
+import com.yl.opts.auth.security.token.PasswordAuthenticationToken;
+import com.yl.opts.common.security.component.BaseTokenParam;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -27,6 +29,27 @@ public class PasswordAuthenticationFilter extends AbstractAuthenticationProcessi
             throw new AuthenticationServiceException("method is error");
         }
         //开始获取参数
-        return null;
+        String account = getAccount(request);
+        String password = getPassword(request);
+        PasswordAuthenticationToken passwordAuthenticationToken = new PasswordAuthenticationToken();
+        passwordAuthenticationToken.setAccount(account);
+        passwordAuthenticationToken.setPassword(password);
+        passwordAuthenticationToken.setDetails(authenticationDetailsSource.buildDetails(request));
+        return this.getAuthenticationManager().authenticate(passwordAuthenticationToken);
+    }
+
+
+    /**
+     * 获取登录帐号
+     * @param request
+     * @return
+     */
+    private String getAccount(HttpServletRequest request){
+        return request.getParameter(BaseTokenParam.Password.ACCOUNT);
+    }
+
+
+    private String getPassword(HttpServletRequest request){
+        return request.getParameter(BaseTokenParam.Password.PASSWORD);
     }
 }

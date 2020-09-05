@@ -55,6 +55,18 @@
             <version>1.0.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.yl</groupId>
+            <artifactId>opts-common-security</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.4.0</version>
+        </dependency>
+
 
     </dependencies>
 
