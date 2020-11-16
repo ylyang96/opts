@@ -4,55 +4,55 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.yl</groupId>
-        <artifactId>opts-cloud</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <artifactId>opts-service</artifactId>
+        <version>1.0.0</version>
     </parent>
 
-    <artifactId>opts-gateway</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>opts-gateway</name>
-    <description>服务网关 gateway</description>
+    <artifactId>opts-service-data</artifactId>
+    <version>1.0.0T</version>
+    <name>opts-service-data</name>
+    <description>数据服务层</description>
 
     <properties>
         <java.version>1.8</java.version>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-gateway</artifactId>
-        </dependency>
 
 <!--        &lt;!&ndash;注册中心客户端&ndash;&gt;-->
 <!--        <dependency>-->
 <!--            <groupId>com.alibaba.cloud</groupId>-->
 <!--            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>-->
 <!--        </dependency>-->
-        <!--配置中心客户端-->
+<!--        &lt;!&ndash;配置中心客户端&ndash;&gt;-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
 
-
         <dependency>
-            <groupId>io.projectreactor</groupId>
-            <artifactId>reactor-test</artifactId>
-            <scope>test</scope>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.rocketmq/rocketmq-spring-boot-starter -->
+        <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-spring-boot-starter</artifactId>
+            <version>2.1.1</version>
         </dependency>
 
         <dependency>
-            <groupId>com.yl</groupId>
-            <artifactId>opts-common-core</artifactId>
-            <version>1.0.0</version>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-generator</artifactId>
+            <version>3.4.0</version>
         </dependency>
-
-
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>2.3.30</version>
+        </dependency>
 
     </dependencies>
 

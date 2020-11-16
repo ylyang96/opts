@@ -21,8 +21,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
 /**
- * @author lengleng
- * @date 2019/2/1
+ * @author ylyang
  * RestTemplate
  */
 @Configuration

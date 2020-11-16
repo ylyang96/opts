@@ -1,6 +1,5 @@
-package com.yl.opts.auth;
+package com.yl.opts;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -10,10 +9,9 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-@MapperScan("com.yl.opts.auth.mapper")
-public class OptsAuthApplication {
+public class OptsAuthServiceDataApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(OptsAuthApplication.class, args);
+        SpringApplication.run(OptsAuthServiceDataApplication.class, args);
     }
 }
