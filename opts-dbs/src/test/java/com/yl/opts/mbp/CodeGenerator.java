@@ -41,13 +41,16 @@ public class CodeGenerator {
     public static void main(String[] args) {
         // 代码生成器
         AutoGenerator mpg = new AutoGenerator();
-
+        CodeGenerator codeGenerator = new CodeGenerator();
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
+        projectPath = codeGenerator.getOutputDir("opts-dbs");
         gc.setOutputDir(projectPath + "/src/main/java");
         gc.setAuthor("ylyang");
         gc.setOpen(false);
+        gc.setBaseResultMap(true);
+        gc.setBaseColumnList(true);
         // gc.setSwagger2(true); 实体属性 Swagger2 注解
         mpg.setGlobalConfig(gc);
 
@@ -57,13 +60,14 @@ public class CodeGenerator {
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
-        dsc.setPassword("Wj960223");
+        dsc.setPassword("Wj9602.23");
         mpg.setDataSource(dsc);
 
         // 包配置
         PackageConfig pc = new PackageConfig();
-        pc.setModuleName(scanner("模块名"));
-        pc.setParent("com.baomidou.ant");
+        //pc.setModuleName(scanner("模块名"));
+        pc.setModuleName("community");
+        pc.setParent("com.yl.opts.db");
         mpg.setPackageInfo(pc);
 
         // 自定义配置
@@ -82,11 +86,13 @@ public class CodeGenerator {
         // 自定义输出配置
         List<FileOutConfig> focList = new ArrayList<>();
         // 自定义配置会被优先输出
+        String finalProjectPath = projectPath;
+
         focList.add(new FileOutConfig(templatePath) {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 // 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化！！
-                return projectPath + "/src/main/resources/mapper/" + pc.getModuleName()
+                return finalProjectPath + "/src/main/resources/mapper/" + pc.getModuleName()
                         + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
             }
         });
@@ -124,14 +130,14 @@ public class CodeGenerator {
         StrategyConfig strategy = new StrategyConfig();
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-        strategy.setSuperEntityClass("你自己的父类实体,没有就不用设置!");
+        //strategy.setSuperEntityClass("你自己的父类实体,没有就不用设置!");
         strategy.setEntityLombokModel(true);
         strategy.setRestControllerStyle(true);
         // 公共父类
-        strategy.setSuperControllerClass("你自己的父类控制器,没有就不用设置!");
+        //strategy.setSuperControllerClass("你自己的父类控制器,没有就不用设置!");
         // 写于父类中的公共字段
-        strategy.setSuperEntityColumns("id");
-        strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
+        //strategy.setSuperEntityColumns("id");
+        strategy.setInclude(scanner("community_dynamic").split(","));
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix(pc.getModuleName() + "_");
         mpg.setStrategy(strategy);
@@ -139,5 +145,9 @@ public class CodeGenerator {
         mpg.execute();
     }
 
-
+    private  String getOutputDir(String projectName){
+        String path = this.getClass().getClassLoader().getResource("").getPath();
+        int index = path.indexOf(projectName);
+        return path.substring(1, index)+projectName;
+    }
 }

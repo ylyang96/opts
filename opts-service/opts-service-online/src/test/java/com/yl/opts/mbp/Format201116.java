@@ -1,6 +1,8 @@
 package com.yl.opts.mbp;
 
-import java.util.Random;
+import org.junit.Test;
+
+import java.util.*;
 
 /**
  * @author ylyang
@@ -29,6 +31,26 @@ public class Format201116 {
             String temp = String.format(text, Integer.valueOf(s),90+r.nextInt(20));
             System.out.println(temp);
         }
+    }
+
+
+    @Test
+    public void test001(){
+        TreeSet<String> treeSet = new TreeSet<>();
+        treeSet.add("bb");
+        treeSet.add("aa");
+        treeSet.add("dd");
+        System.out.println(treeSet);
+    }
+    @Test
+    public void test002(){
+        HashSet<String> hashSet = new HashSet<>();
+        hashSet.add("bb");
+        hashSet.add("aa");
+        hashSet.add("cc");
+        System.out.println(hashSet);
+        List<String> list = new ArrayList<>();
+        list.add("aa");
 
     }
 }

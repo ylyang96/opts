@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.3.RELEASE</version>
+        <version>2.3.4.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.yl</groupId>
@@ -19,6 +19,7 @@
         <module>opts-common</module>
         <module>opts-gateway</module>
         <module>opts-service</module>
+        <module>opts-dbs</module>
     </modules>
     <properties>
         <!-- Environment Settings -->
@@ -28,7 +29,7 @@
         <!--Hoxton.SR8-->
         <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
         <spring-boot.version>2.3.3.RELEASE</spring-boot.version>
-
+        <spring-cloud-alibaba.version>2.2.2.RELEASE</spring-cloud-alibaba.version>
     </properties>
 
     <dependencies>
@@ -44,10 +45,7 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-stream-rocketmq</artifactId>
-        </dependency>
+
 
 
     </dependencies>
@@ -66,7 +64,7 @@
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>2.2.3.RELEASE</version>
+                <version>2.2.2.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

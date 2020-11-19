@@ -19,6 +19,7 @@
     <modules>
         <module>opts-service-data</module>
         <module>opts-service-online</module>
+        <module>opts-service-community</module>
     </modules>
 
 
