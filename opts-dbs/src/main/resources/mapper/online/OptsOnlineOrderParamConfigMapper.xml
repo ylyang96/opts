@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yl.opts.db.online.mapper.OptsOnlineOrderParamConfigMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yl.opts.db.online.entity.OptsOnlineOrderParamConfig">
+        <id column="id" property="id" />
+        <result column="field_key" property="fieldKey" />
+        <result column="filed_value" property="filedValue" />
+        <result column="display_value" property="displayValue" />
+        <result column="tips_value" property="tipsValue" />
+        <result column="is_must" property="isMust" />
+        <result column="is_audit_field" property="isAuditField" />
+        <result column="type" property="type" />
+        <result column="state" property="state" />
+        <result column="bind_id" property="bindId" />
+        <result column="regular" property="regular" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="extend" property="extend" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, field_key, filed_value, display_value, tips_value, is_must, is_audit_field, type, state, bind_id, regular, create_time, update_time, extend
+    </sql>
+
+</mapper>

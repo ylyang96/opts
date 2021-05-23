@@ -58,7 +58,7 @@ public class CodeGenerator {
         DataSourceConfig dsc = new DataSourceConfig();
         dsc.setUrl("jdbc:mysql://121.41.9.85:3306/opts?useUnicode=true&useSSL=false&characterEncoding=utf8");
         // dsc.setSchemaName("public");
-        dsc.setDriverName("com.mysql.jdbc.Driver");
+        dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("Wj9602.23");
         mpg.setDataSource(dsc);
@@ -66,7 +66,7 @@ public class CodeGenerator {
         // 包配置
         PackageConfig pc = new PackageConfig();
         //pc.setModuleName(scanner("模块名"));
-        pc.setModuleName("community");
+        pc.setModuleName("online");
         pc.setParent("com.yl.opts.db");
         mpg.setPackageInfo(pc);
 
@@ -125,7 +125,7 @@ public class CodeGenerator {
 
         templateConfig.setXml(null);
         mpg.setTemplate(templateConfig);
-
+        templateConfig.setController("");
         // 策略配置
         StrategyConfig strategy = new StrategyConfig();
         strategy.setNaming(NamingStrategy.underline_to_camel);
@@ -137,7 +137,7 @@ public class CodeGenerator {
         //strategy.setSuperControllerClass("你自己的父类控制器,没有就不用设置!");
         // 写于父类中的公共字段
         //strategy.setSuperEntityColumns("id");
-        strategy.setInclude(scanner("community_dynamic").split(","));
+        strategy.setInclude(scanner("opts_online_order,opts_online_order_filed_detail").split(","));
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix(pc.getModuleName() + "_");
         mpg.setStrategy(strategy);

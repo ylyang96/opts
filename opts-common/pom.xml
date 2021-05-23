@@ -19,6 +19,7 @@
     <modules>
         <module>opts-common-security</module>
         <module>opts-common-core</module>
+        <module>opts-common-bean</module>
     </modules>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->

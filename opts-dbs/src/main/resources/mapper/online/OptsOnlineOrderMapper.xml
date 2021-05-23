@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yl.opts.db.online.mapper.OptsOnlineOrderMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yl.opts.db.online.entity.OptsOnlineOrder">
+        <id column="id" property="id" />
+        <result column="task_id" property="taskId" />
+        <result column="merchant_id" property="merchantId" />
+        <result column="merchant_phone" property="merchantPhone" />
+        <result column="merchant_name" property="merchantName" />
+        <result column="order_no" property="orderNo" />
+        <result column="sub_filed_json" property="subFiledJson" />
+        <result column="review_filed_json" property="reviewFiledJson" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="finish_time" property="finishTime" />
+        <result column="predict_income" property="predictIncome" />
+        <result column="real_income" property="realIncome" />
+        <result column="status" property="status" />
+        <result column="work_date" property="workDate" />
+        <result column="fail_message" property="failMessage" />
+        <result column="remark" property="remark" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, task_id, merchant_id, merchant_phone, merchant_name, order_no, sub_filed_json, review_filed_json, create_time, update_time, finish_time, predict_income, real_income, status, work_date, fail_message, remark
+    </sql>
+
+</mapper>

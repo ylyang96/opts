@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yl.opts.db.online.mapper.OptsOnlineTaskMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yl.opts.db.online.entity.OptsOnlineTask">
+        <id column="id" property="id" />
+        <result column="task_name" property="taskName" />
+        <result column="status" property="status" />
+        <result column="bounty" property="bounty" />
+        <result column="task_num_type" property="taskNumType" />
+        <result column="task_num" property="taskNum" />
+        <result column="selling_point" property="sellingPoint" />
+        <result column="label" property="label" />
+        <result column="deadline" property="deadline" />
+        <result column="limit_type" property="limitType" />
+        <result column="is_suggest" property="isSuggest" />
+        <result column="step_description" property="stepDescription" />
+        <result column="process_description" property="processDescription" />
+        <result column="process_url" property="processUrl" />
+        <result column="tip_content" property="tipContent" />
+        <result column="remark" property="remark" />
+        <result column="review_time_value" property="reviewTimeValue" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="bm_user_id" property="bmUserId" />
+        <result column="bm_user_name" property="bmUserName" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, task_name, status, bounty, task_num_type, task_num, selling_point, label, deadline, limit_type, is_suggest, step_description, process_description, process_url, tip_content, remark, review_time_value, create_time, update_time, bm_user_id, bm_user_name
+    </sql>
+    <update id="updateLimitNum">
+        update opts_online_task set task_num = task_num - #{num} where id = #{id} and (task_num - #{num}) > 0 and limit_type = 1
+    </update>
+
+</mapper>

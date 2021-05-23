@@ -10,6 +10,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author ylyang
@@ -34,6 +36,9 @@ public class DynamicServiceTest {
         dynamic.setCreateTime(LocalDateTime.now());
         dynamic.setUpdateTime(LocalDateTime.now());
         dynamicMapper.insert(dynamic);
+
+        List<String> list = new ArrayList<>();
+        list.stream().forEach(System.out::println);
 
     }
 }
